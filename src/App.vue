@@ -1,30 +1,87 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <Header/>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+<style>
+* {
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+body {
+  margin: 0 !important;
+}
 
-<style lang="scss">
+ul, li {
+  list-style: none;
+}
+
+body, html, ul {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.colorWhite {
+  color: #fff;
+}
+h3.title a {
+  color: #333;
+}
+</style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  padding: 60px 0 0;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  border: 0;
 }
 
 #nav {
   padding: 30px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
 }
 </style>
+<script>
+  import Header from '@/components/Header.vue'
+  export default {
+    data () {
+      return {
+        apiMenus : [],
+        keys: 'a'
+      }
+    },
+    components: {
+      Header
+    },
+    mounted () {
+      
+    },
+    methods: {
+      onMenuChange: function (key) {
+        // this.keys = key
+        console.log(key)
+      }
+    }
+ }
+</script>
